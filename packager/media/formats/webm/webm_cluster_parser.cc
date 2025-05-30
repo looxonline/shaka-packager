@@ -327,8 +327,10 @@ bool WebMClusterParser::OnBlock(bool is_simple_block,
     return false;
   }
 
+  LOG(INFO) << "I am parsing a block with a timecode of " << timecode << " and the last timecode was " << last_block_timecode_
+
   if (last_block_timecode_ != -1 && timecode < last_block_timecode_) {
-    LOG(ERROR) << "Got a block with a timecode before the previous block.";
+    LOG(ERROR) << "I am on track " << track_num << " and I have found a block with timecode " << timecode << " and that is apparently before the last timecode which was " << last_block_timecode_;
     return false;
   }
 
